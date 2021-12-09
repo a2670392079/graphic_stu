@@ -32,6 +32,12 @@ const config = {
   module: {
     rules: [
       {
+        test: /\.(glsl|frag|vert)$/i,
+        loader: "raw-loader",
+        // loader: path.resolve("./utils/webpack_shader_loader/index.js")
+      },
+
+      {
         test: /\.(ts|tsx)$/i,
         loader: "ts-loader",
         exclude: ["/node_modules/"],
@@ -54,7 +60,11 @@ const config = {
     ],
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: [".tsx", ".ts", ".js", 'json'],
+    alias: {
+      "shader": path.resolve(__dirname, "src/webgl/shader"),
+      "@": path.resolve(__dirname, "src")
+    }
   },
 };
 
