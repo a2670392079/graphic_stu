@@ -1,7 +1,10 @@
-declare module "*.vert";
-declare module "*.glsl";
-declare module "*.frag";
-declare type WidthAndHeight = {
-  width: number;
-  height: number;
-};
+let a:string
+declare module "*.vert"{
+  export default a;
+}
+declare module "*.glsl"{
+  export default a;
+}
+declare module "*.frag" {
+  export default a;
+}

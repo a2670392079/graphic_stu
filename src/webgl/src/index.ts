@@ -1,7 +1,8 @@
-import * as tempvertex from "../shader/tempvertex.vert";
-// import { } from "../shader/test.json"
+import render_grid from './grid';
+import render_webgl_triangle from './triangle';
 
 
-// console.log(tempvertex);
-
-export default tempvertex
+export  {
+    render_webgl_triangle,
+    render_grid
+}
