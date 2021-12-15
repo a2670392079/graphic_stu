@@ -8,3 +8,6 @@ declare module "*.glsl"{
 declare module "*.frag" {
   export default a;
 }
+
+
+declare type Point = [number, number]
