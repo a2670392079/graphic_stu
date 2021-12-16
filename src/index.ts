@@ -1,4 +1,4 @@
-import { render_webgl_triangle, render_grid } from "./webgl/src/index";
+import render_webgl from "./webgl/src/index";
 import render_canvas from './canvas/index'
 
 const canvas_test = document.createElement("canvas");
@@ -13,7 +13,7 @@ const canvas_context = canvas_test.getContext("2d");
 const webgl_context = webgl_test.getContext("webgl");
 
 function render() {
-  render_grid(webgl_context, 36);
+  render_webgl(webgl_context);
   render_canvas(canvas_context, canvas_test);
 }
 render();

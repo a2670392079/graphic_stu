@@ -5,7 +5,7 @@ import shaderLoader from "./utils/shaderLoader";
 export default function render_grid(gl: WebGLRenderingContext, rows: number) {
   const program = shaderLoader(gl, girdvert, gridfrag);
   const grid = new Float32Array([-1, -1, -1, 1, 1, 1, 1, -1]);
-  const gaidUv = new Float32Array([0, 0, 0, 1, 1, 1, 1, 0]);
+  const gridUv = new Float32Array([0, 0, 0, 1, 1, 1, 1, 0]);
   const buffer = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
   gl.bufferData(gl.ARRAY_BUFFER, grid, gl.STATIC_DRAW);
@@ -16,7 +16,7 @@ export default function render_grid(gl: WebGLRenderingContext, rows: number) {
   const uvBuffer = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, uvBuffer);
   const uv = gl.getAttribLocation(program, "uv");
-  gl.bufferData(gl.ARRAY_BUFFER, gaidUv, gl.STATIC_DRAW);
+  gl.bufferData(gl.ARRAY_BUFFER, gridUv, gl.STATIC_DRAW);
   gl.vertexAttribPointer(uv, 2, gl.FLOAT, false, 0, 0);
   gl.enableVertexAttribArray(uv);
 
