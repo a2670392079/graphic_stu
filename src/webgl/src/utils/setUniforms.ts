@@ -10,7 +10,7 @@ export enum UniformsType {
 }
 
 type UniformsValue =
-  | number
+  | [number]
   | [number, number]
   | [number, number, number]
   | [number, number, number, number];
@@ -24,19 +24,20 @@ export default function setUniforms(
 ) {
   const u_name = gl.getUniformLocation(program, name);
   if (type) {
-    if (Array.isArray(value)) {
+    if (value.length > 1) {
       (gl[`uniform${type}`] as any)(u_name, ...value);
     } else {
-      (gl[`uniform${type}`] as any)(u_name, value);
+      (gl[`uniform${type}`] as any)(u_name, value[0]);
+      // gl.uniform1i(u_name, 100)
     }
   } else {
-    if (Array.isArray(value)) {
+    if (value.length > 1) {
       const len = value.length;
       if (len <= 4 && len > 0) {
         (gl[`uniform${len}f`] as any)(u_name, ...value);
       }
     } else {
-      gl.uniform1f(u_name, value);
+      gl.uniform1f(u_name, value[0]);
     }
   }
 }

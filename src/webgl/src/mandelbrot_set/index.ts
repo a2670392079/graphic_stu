@@ -9,8 +9,8 @@ const mandelbrot = (gl: WebGLRenderingContext) => {
   setAttrib(gl, program, new Float32Array([-1, -1, -1, 1, 1, 1, 1, -1]), "a_vertexPostition");
   setAttrib(gl, program, new Float32Array([0, 0, 0, 1, 1, 1, 1, 0]), "uv");
   setUniforms(gl, program, "center", [0, 0]);
-  setUniforms(gl, program, "scale", 1);
-  setUniforms(gl, program, "iterations ", 256, UniformsType["1i"]);
+  setUniforms(gl, program, "scale", [1]);
+  setUniforms(gl, program, "iterations", [256], UniformsType["1i"]);
   const count = setCells(gl, new Int16Array([0, 1, 2, 2, 0, 3]));
   gl.drawElements(gl.TRIANGLES, count, gl.UNSIGNED_SHORT, 0);
 //   function update() {

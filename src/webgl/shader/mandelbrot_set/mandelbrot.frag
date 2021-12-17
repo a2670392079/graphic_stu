@@ -1,4 +1,5 @@
 precision mediump float;
+precision highp int;
 varying vec2 vUv;
 
 uniform vec2 center;
@@ -25,6 +26,6 @@ void main(){
         }
     }
     // gl_FragColor.rgb=escaped?vec3(float(j))/float(iterations):vec3(0.);
-    gl_FragColor.rgb=escaped?(vec3(float(j))/float(iterations)):vec3(0.);
+    gl_FragColor.rgb=escaped?(vec3(float(j))/float(iterations)):vec3(0.0, 0.0, 0.0);
     gl_FragColor.a=1.;
 }
