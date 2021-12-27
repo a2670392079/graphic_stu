@@ -7,10 +7,10 @@ import render_17 from './17chapter/index';
 
 
 const render = (gl:WebGLRenderingContext) => {
-    particle(gl);
+    // particle(gl);
     // render_grid(gl, 36);
     // render_16(gl)
-    // render_17(gl);
+    render_17(gl);
     // mandelbrot(gl);
 }
 
